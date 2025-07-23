@@ -23,7 +23,7 @@ EduConnect est une interface frontend moderne pour une plateforme d'inscription 
 1. **Clonez le dépôt** (ou extrayez les fichiers si vous les avez téléchargés) :
 
 ```bash
-    git clone https://votre-repo/educonnect.git
+    git clone https://github.com/REBCDR07/EduConnect-Plateform.git
     cd educonnect/client
 ```
 
