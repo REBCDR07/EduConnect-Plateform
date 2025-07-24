@@ -5,11 +5,7 @@ const SCHOOLS_KEY = 'educonnect_schools';
 const getStoredSchools = () => {
    const schools = localStorage.getItem(SCHOOLS_KEY);
    if (!schools) {
-        // Initialiser avec quelques données si vide
-       const initialSchools = [
-          { id: uuidv4(), directorId: 'director-id-placeholder', name: 'Université Prestigia', description: 'Formation d\'excellence pour les leaders de demain.', photo: '/src/assets/logo.jpg' },
-          { id: uuidv4(), directorId: 'director-id-placeholder', name: 'Institut InnovaTech', description: 'Au cœur de la technologie et de l\'innovation.', photo: '/src/assets/logo.jpg' }
-      ];
+    
     localStorage.setItem(SCHOOLS_KEY, JSON.stringify(initialSchools));
       return initialSchools;
    }
