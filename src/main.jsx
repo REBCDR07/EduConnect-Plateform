@@ -1,11 +1,14 @@
+// src/main.jsx
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexte/AuthContext.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
-// Initialiser le thème du dark/light mode au chargement de la page
+// Initialisation du thème
 if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
   document.documentElement.classList.add('dark');
 } else {
@@ -14,10 +17,12 @@ if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && w
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </BrowserRouter>
+    <HelmetProvider> {/* <-- seo */}
+      <BrowserRouter>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </BrowserRouter>
+    </HelmetProvider> {/* <-- seo */}
   </React.StrictMode>,
 );
