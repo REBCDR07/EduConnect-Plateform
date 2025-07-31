@@ -1,15 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-
 const SCHOOLS_KEY = 'educonnect_schools';
 
 const getStoredSchools = () => {
-   const schools = localStorage.getItem(SCHOOLS_KEY);
-   if (!schools) {
-    
-    localStorage.setItem(SCHOOLS_KEY, JSON.stringify(initialSchools));
-      return initialSchools;
-   }
-   return JSON.parse(schools);
+    const schools = localStorage.getItem(SCHOOLS_KEY);
+    return schools ? JSON.parse(schools) : [];
 };
 
 const schoolService = {
@@ -29,10 +23,7 @@ const schoolService = {
 
     createSchool: (schoolData) => {
         const schools = getStoredSchools();
-        const newSchool = {
-            id: uuidv4(),
-            ...schoolData
-        };
+        const newSchool = { id: uuidv4(), ...schoolData };
         schools.push(newSchool);
         localStorage.setItem(SCHOOLS_KEY, JSON.stringify(schools));
         return newSchool;
