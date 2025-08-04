@@ -1,43 +1,70 @@
-import { v4 as uuidv4 } from 'uuid';
+// client/src/services/authService.js
+import { 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  signOut 
+} from "firebase/auth";
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
+import { auth, db } from '../firebase'; // On importe nos services Firebase
 
-const USERS_KEY = 'educonnect_users';
-const CURRENT_USER_KEY = 'user'; // Simplification du nom pour la cohérence
+// ----- VERSION INSCRIPTION -----
+// Crée l'utilisateur dans "Authentication" ET ses infos dans "Firestore"
+const registerUser = async (userData) => {
+  const { email, password, firstName, lastName, role } = userData;
+  
+  console.log("🕵️ [authService] Début de l'inscription pour:", email);
+  // 1. Crée l'utilisateur dans Firebase Auth
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  const user = userCredential.user;
+  console.log("✅ Utilisateur créé dans Firebase Auth (UID):", user.uid);
 
-const getStoredUsers = () => {
-  const users = localStorage.getItem(USERS_KEY);
-  return users ? JSON.parse(users) : [];
+  // 2. Stocke les infos supplémentaires (rôle, nom) dans Firestore
+  await setDoc(doc(db, "users", user.uid), {
+    firstName,
+    lastName,
+    role
+  });
+  console.log("✅ Informations utilisateur sauvegardées dans Firestore.");
+
+  return user;
 };
 
+// ----- VERSION CONNEXION -----
+// Vérifie les identifiants et récupère les données complètes de l'utilisateur
+const loginUser = async (email, password) => {
+  console.log("🕵️ [authService] Tentative de connexion pour:", email);
+  // 1. Firebase vérifie l'email et le mot de passe
+  const userCredential = await signInWithEmailAndPassword(auth, email, password);
+  console.log("✅ Authentification Firebase réussie pour:", userCredential.user.email);
+  
+  // 2. On récupère le rôle et le nom depuis Firestore
+  const userDocRef = doc(db, "users", userCredential.user.uid);
+  const userDoc = await getDoc(userDocRef);
+
+  if (userDoc.exists()) {
+    console.log("✅ Rôle et nom récupérés depuis Firestore:", userDoc.data());
+    // On fusionne l'objet de Firebase Auth avec nos données de Firestore
+    const fullUserData = {
+        uid: userCredential.user.uid,
+        email: userCredential.user.email,
+        ...userDoc.data()
+    };
+    return fullUserData;
+  } else {
+    // Cas peu probable où l'utilisateur existe dans Auth mais pas dans Firestore
+    console.error("❌ Utilisateur authentifié mais aucune donnée trouvée dans Firestore !");
+    return userCredential.user;
+  }
+};
+
+// ----- VERSION DÉCONNEXION -----
+const logoutUser = () => signOut(auth);
+
+// On exporte un objet simple avec les fonctions renommées pour plus de clarté
 const authService = {
-  register: (userData) => {
-    const users = getStoredUsers();
-    const existingUser = users.find(user => user.email === userData.email);
-    if (existingUser) throw new Error('Un utilisateur avec cet email existe déjà.');
-    
-    const { confirmPassword, ...userToSave } = userData;
-    const newUser = { id: uuidv4(), ...userToSave };
-    
-    users.push(newUser);
-    localStorage.setItem(USERS_KEY, JSON.stringify(users));
-    return newUser;
-  },
-
-  login: (email, password) => {
-    const users = getStoredUsers();
-    const user = users.find(u => u.email === email && u.password === password);
-    if (user) {
-      localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
-      return user;
-    }
-    throw new Error('Email ou mot de passe incorrect.');
-  },
-
-  logout: () => {
-    localStorage.removeItem(CURRENT_USER_KEY);
-  },
-
-  getCurrentUser: () => {
-    return JSON.parse(localStorage.getItem(CURRENT_USER_KEY));
-  },
+  register: registerUser,
+  login: loginUser,
+  logout: logoutUser,
 };
+
 export default authService;

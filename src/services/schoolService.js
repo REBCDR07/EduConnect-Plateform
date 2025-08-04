@@ -1,50 +1,78 @@
-import { v4 as uuidv4 } from 'uuid';
-const SCHOOLS_KEY = 'educonnect_schools';
+// client/src/services/schoolService.js
+import { collection, addDoc, getDocs, getDoc, query, where, doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from '../firebase';
 
-const getStoredSchools = () => {
-    const schools = localStorage.getItem(SCHOOLS_KEY);
-    return schools ? JSON.parse(schools) : [];
+// Référence à la collection 'schools' dans Firestore
+const schoolsCollectionRef = collection(db, 'schools');
+
+/**
+ * Crée un nouveau document 'school' dans Firestore.
+ * @param {object} schoolData - Données de l'école (name, description, photo).
+ * @param {string} directorId - L'UID du directeur.
+ */
+const createSchool = async (schoolData, directorId) => {
+  return await addDoc(schoolsCollectionRef, { ...schoolData, directorId: directorId, createdAt: new Date() });
 };
 
-const schoolService = {
-    getSchools: () => {
-        return getStoredSchools();
-    },
+/**
+ * Récupère tous les documents depuis la collection 'schools'.
+ */
+const getSchools = async () => {
+  const data = await getDocs(schoolsCollectionRef);
+  return data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+};
 
-    getSchoolById: (id) => {
-        const schools = getStoredSchools();
-        return schools.find(s => s.id === id);
-    },
-
-    getSchoolsByDirector: (directorId) => {
-        const schools = getStoredSchools();
-        return schools.filter(s => s.directorId === directorId);
-    },
-
-    createSchool: (schoolData) => {
-        const schools = getStoredSchools();
-        const newSchool = { id: uuidv4(), ...schoolData };
-        schools.push(newSchool);
-        localStorage.setItem(SCHOOLS_KEY, JSON.stringify(schools));
-        return newSchool;
-    },
-
-    updateSchool: (id, updatedData) => {
-        let schools = getStoredSchools();
-        const schoolIndex = schools.findIndex(s => s.id === id);
-        if (schoolIndex > -1) {
-            schools[schoolIndex] = { ...schools[schoolIndex], ...updatedData };
-            localStorage.setItem(SCHOOLS_KEY, JSON.stringify(schools));
-            return schools[schoolIndex];
-        }
-        return null;
-    },
-
-    deleteSchool: (id) => {
-        let schools = getStoredSchools();
-        schools = schools.filter(s => s.id !== id);
-        localStorage.setItem(SCHOOLS_KEY, JSON.stringify(schools));
+/**
+ * Récupère les détails d'une seule école par son ID.
+ * @param {string} schoolId - L'ID du document de l'école.
+ */
+const getSchoolById = async (schoolId) => {
+    const schoolDocRef = doc(db, 'schools', schoolId);
+    const docSnap = await getDoc(schoolDocRef);
+    if(docSnap.exists()){
+        return { ...docSnap.data(), id: docSnap.id };
+    } else {
+        throw new Error("École non trouvée");
     }
+}
+
+/**
+ * Récupère uniquement les écoles créées par un directeur spécifique.
+ * @param {string} directorId - L'UID du directeur.
+ */
+const getSchoolsByDirector = async (directorId) => {
+  const q = query(schoolsCollectionRef, where("directorId", "==", directorId));
+  const data = await getDocs(q);
+  return data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+};
+
+/**
+ * Supprime une école de Firestore.
+ * @param {string} schoolId - L'ID du document de l'école.
+ */
+const deleteSchool = async (schoolId) => {
+  const schoolDoc = doc(db, 'schools', schoolId);
+  await deleteDoc(schoolDoc);
+};
+
+/**
+ * Met à jour les informations d'une école.
+ * @param {string} schoolId - L'ID du document de l'école.
+ * @param {object} schoolData - Les nouveaux champs à mettre à jour.
+ */
+const updateSchool = async (schoolId, schoolData) => {
+  const schoolDoc = doc(db, 'schools', schoolId);
+  await updateDoc(schoolDoc, schoolData); 
+};
+
+
+const schoolService = {
+  createSchool,
+  getSchools,
+  getSchoolById,
+  getSchoolsByDirector,
+  deleteSchool,
+  updateSchool,
 };
 
 export default schoolService;
