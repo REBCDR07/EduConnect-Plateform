@@ -2,26 +2,24 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-// Pour le stockage des images, on l'importera quand on en aura besoin.
-// import { getStorage } from "firebase/storage";
 
-// VOTRE configuration Firebase personnelle et complète
+// Configuration Firebase en utilisant les variables d'environnement
 const firebaseConfig = {
-  apiKey: "AIzaSyDXq5KlY8vpgbGmlGYEypNxfaz_CiVsV5Q",
-  authDomain: "educonnect-cbb5d.firebaseapp.com",
-  projectId: "educonnect-cbb5d",
-  storageBucket: "educonnect-cbb5d.appspot.com", // J'ai corrigé le .firebasestorage.app en .appspot.com qui est le format attendu
-  messagingSenderId: "328014003562",
-  appId: "1:328014003562:web:c13cdcbc6ee686c7d0b913"
+  
+
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
-// Initialiser l'application Firebase
+// Initialisation l'application Firebase
 const app = initializeApp(firebaseConfig);
 
-// Créer et exporter les instances des services Firebase
-// C'est ce que nos autres fichiers importeront pour interagir avec Firebase
+// Créer et exporter les instances des services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-// export const storage = getStorage(app);
 
 export default app;

@@ -126,3 +126,6 @@ dist-ssr
 
 # Mapped types
 /types/mapped/
+
+# Optional environment variables file
+.env
