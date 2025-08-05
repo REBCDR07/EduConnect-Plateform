@@ -7,6 +7,9 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexte/AuthContext.jsx';
 import { HelmetProvider } from 'react-helmet-async';
+import { inject } from '@vercel/analytics';
+ 
+inject();
 
 // Initialisation du thème
 if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
