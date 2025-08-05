@@ -41,6 +41,15 @@ const HomePrivate = () => {
           <meta name="description" content="Accédez à votre tableau de bord pour gérer vos établissements et suivre les inscriptions de vos étudiants sur EduConnect." />
           <meta name="description" content="Digitalisez votre centre de formation, votre école et ou votre unitversité ou établissement, en toute simplicité avec EduConnect." />
           <meta name="description" content="Utulisez EduConnect pour faciliter la gestion des inscriptions de vos futurs étudiants dans vos centres et autres." />
+
+          <meta name="description" content="EduConnect - Plateforme éducative intuitive pour étudiants et enseignants." />
+          <meta name="keywords" content="EduConnect, éducation, plateforme scolaire, école, étudiants, enseignants" />
+          <meta name="author" content="ELTON HOUNNOU" />
+          <meta property="og:title" content="EduConnect - Plateforme éducative" />
+          <meta property="og:description" content="Simplifiez la gestion scolaire avec EduConnect." />
+          <meta property="og:url" content="https://educonnect-sandy.vercel.app/" />
+          <meta property="og:type" content="website" />
+
         </Helmet>
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
 

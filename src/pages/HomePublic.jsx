@@ -37,6 +37,16 @@ const HomePublic = () => {
                 <title>EduConnect - Plateforme d'Inscription Scolaire Simplifiée</title>
                 <meta name="description" content="Découvrez EDUCONNECT, la plateforme qui révolutionne l'inscription scolaire. Trouvez l'établissement de vos rêves, postulez en ligne et suivez vos candidatures en toute simplicité. Pour les directeurs, gérez vos inscriptions avec efficacité. Rejoignez-nous !" />
                 <meta name="keywords" content="inscription en ligne, plateforme éducative, educonnect, trouver école, candidature étudiant, gestion scolaire" />
+
+
+                <meta name="description" content="EduConnect - Plateforme éducative intuitive pour étudiants et enseignants." />
+                <meta name="keywords" content="EduConnect, éducation, plateforme scolaire, école, étudiants, enseignants" />
+                <meta name="author" content="ELTON HOUNNOU" />
+                <meta property="og:title" content="EduConnect - Plateforme éducative" />
+                <meta property="og:description" content="Simplifiez la gestion scolaire avec EduConnect." />
+                <meta property="og:url" content="https://educonnect-sandy.vercel.app/" />
+                <meta property="og:type" content="website" />
+
             </Helmet>
 
             <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">

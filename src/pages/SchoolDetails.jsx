@@ -76,7 +76,19 @@ const SchoolDetails = () => {
 
     return (
         <>
-            <Helmet><title>Inscription à {school?.name} - EduConnect</title></Helmet>
+            <Helmet><title>Inscription à {school?.name} - EduConnect</title>
+            
+            <meta name="description" content="EduConnect - Plateforme éducative intuitive pour étudiants et enseignants." />
+            <meta name="keywords" content="EduConnect, éducation, plateforme scolaire, école, étudiants, enseignants" />
+            <meta name="author" content="ELTON HOUNNOU" />
+            <meta property="og:title" content="EduConnect - Plateforme éducative" />
+            <meta property="og:description" content="Simplifiez la gestion scolaire avec EduConnect." />
+            <meta property="og:url" content="https://educonnect-sandy.vercel.app/" />
+            <meta property="og:type" content="website" />
+
+            
+            
+            </Helmet>
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
                 {/* Éléments décoratifs de fond - optimisés */}
                 <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500/8 to-purple-500/8 dark:from-blue-400/6 dark:to-purple-400/6 rounded-full blur-3xl animate-pulse"></div>

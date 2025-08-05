@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://educonnect-sandy.vercel.app/sitemap.xml
