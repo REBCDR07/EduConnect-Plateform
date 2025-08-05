@@ -39,20 +39,29 @@ const HomePrivate = () => {
         <Helmet>
           <title>Portail Directeur - EduConnect</title>
           <meta name="description" content="Accédez à votre tableau de bord pour gérer vos établissements et suivre les inscriptions de vos étudiants sur EduConnect." />
+          <meta name="description" content="Digitalisez votre centre de formation, votre école et ou votre unitversité ou établissement, en toute simplicité avec EduConnect." />
+          <meta name="description" content="Utulisez EduConnect pour faciliter la gestion des inscriptions de vos futurs étudiants dans vos centres et autres." />
         </Helmet>
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
-          {/* Éléments décoratifs de fond - optimisés */}
+
+
+          {/* décors de fond */}
+
           <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500/8 to-purple-500/8 dark:from-blue-400/6 dark:to-purple-400/6 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-40 sm:h-40 lg:w-64 lg:h-64 bg-gradient-to-tl from-emerald-500/8 to-blue-500/8 dark:from-emerald-400/6 dark:to-blue-400/6 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-purple-500/6 to-pink-500/6 dark:from-purple-400/4 dark:to-pink-400/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-purple-500/6 to-pink-500/6 dark:from-purple-400/4 dark:to-pink-400/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
           
-          {/* Ligne décorative animée */}
+          
           <div className="absolute top-0 left-0 right-0 h-px sm:h-0.5 bg-gradient-to-r from-transparent via-blue-500/40 via-purple-500/40 via-emerald-500/40 to-transparent animate-gradient-x"></div>
 
           <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-8 lg:py-16">
             <div className="max-w-5xl mx-auto text-center">
               <div className="mb-8 lg:mb-12 animate-fade-in-up">
+
+
                 {/* Logo et branding */}
+
+
                 <div className="flex items-center justify-center space-x-4 sm:space-x-6 mb-8 lg:mb-12">
                   <div className="relative group/logo">
                     <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 dark:from-blue-400 dark:via-blue-500 dark:to-purple-500 rounded-3xl flex items-center justify-center shadow-xl shadow-blue-500/25 dark:shadow-blue-400/20 transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:shadow-2xl">
@@ -91,7 +100,7 @@ const HomePrivate = () => {
                       Tableau de bord Directeur
                     </h2>
                     <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 font-medium max-w-2xl mx-auto">
-                      Gérez vos établissements, suivez les inscriptions et analysez les données de vos étudiants
+                      Gérez vos établissements, suivez les inscriptions et analysez les données de vos étudiants en toute simplicité.
                     </p>
                     <Link 
                       to="/dashboard/director" 
@@ -118,16 +127,25 @@ const HomePrivate = () => {
         <meta name="description" content="Explorez la liste des écoles et universités disponibles sur EDUCONNECT et trouvez la formation qui vous correspond pour postuler en ligne." />
       </Helmet>
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
-        {/* Éléments décoratifs de fond - optimisés */}
+
+
+        {/* décors de fond */}
         <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500/8 to-purple-500/8 dark:from-blue-400/6 dark:to-purple-400/6 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-40 sm:h-40 lg:w-64 lg:h-64 bg-gradient-to-tl from-emerald-500/8 to-blue-500/8 dark:from-emerald-400/6 dark:to-blue-400/6 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-purple-500/6 to-pink-500/6 dark:from-purple-400/4 dark:to-pink-400/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-purple-500/6 to-pink-500/6 dark:from-purple-400/4 dark:to-pink-400/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
         
-        {/* Ligne décorative animée */}
+
+
+       
+       
         <div className="absolute top-0 left-0 right-0 h-px sm:h-0.5 bg-gradient-to-r from-transparent via-blue-500/40 via-purple-500/40 via-emerald-500/40 to-transparent animate-gradient-x"></div>
 
+
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 lg:py-12">
+
+
           {/* Header */}
+
           <div className="mb-8 lg:mb-12 animate-fade-in-up">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-400/15 dark:to-purple-400/15 rounded-3xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -141,11 +159,11 @@ const HomePrivate = () => {
                   </div>
                   <div className="space-y-1 sm:space-y-2">
                     <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 dark:from-blue-400 dark:via-blue-300 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
-                      Bonjour {user.firstName}!
+                      Bonjour {user.firstName} !
                     </h1>
                     <div className="h-0.5 w-full bg-gradient-to-r from-blue-500 to-purple-500 dark:from-blue-400 dark:to-purple-400 rounded-full opacity-60"></div>
                     <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 dark:text-gray-300 font-medium">
-                      Trouvez votre future école parmi nos établissements partenaires
+                      Trouvez votre future école parmi les établissements et dirigeants qui ont optés pour EduConnect.
                     </p>
                   </div>
                 </div>
@@ -154,6 +172,8 @@ const HomePrivate = () => {
           </div>
 
           {/* Schools Section */}
+
+
           <div className="relative group animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 dark:from-emerald-400/15 dark:to-blue-400/15 rounded-3xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl rounded-3xl shadow-xl border border-white/30 dark:border-gray-700/30 p-6 sm:p-8 lg:p-10 xl:p-12">
@@ -183,7 +203,7 @@ const HomePrivate = () => {
                       <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-2xl blur-md opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500"></div>
                     </div>
                     <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 bg-clip-text text-transparent">
-                      Écoles disponibles
+                      Écoles disponibles .
                     </h2>
                   </div>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 lg:gap-8">

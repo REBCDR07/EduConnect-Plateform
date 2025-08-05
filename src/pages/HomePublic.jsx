@@ -40,21 +40,29 @@ const HomePublic = () => {
             </Helmet>
 
             <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 relative overflow-hidden">
-                {/* Éléments décoratifs de fond - optimisés */}
+
+
+                {/* décors de fond */}
+
+
                 <div className="absolute top-0 left-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-80 lg:h-80 bg-gradient-to-br from-blue-500/8 to-purple-500/8 dark:from-blue-400/6 dark:to-purple-400/6 rounded-full blur-3xl animate-pulse"></div>
                 <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-40 sm:h-40 lg:w-64 lg:h-64 bg-gradient-to-tl from-emerald-500/8 to-blue-500/8 dark:from-emerald-400/6 dark:to-blue-400/6 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-32 sm:h-32 lg:w-48 lg:h-48 bg-gradient-to-br from-purple-500/6 to-pink-500/6 dark:from-purple-400/4 dark:to-pink-400/4 rounded-full blur-2xl animate-pulse" style={{animationDelay: '2s'}}></div>
                 
-                {/* Ligne décorative animée */}
+                
+
                 <div className="absolute top-0 left-0 right-0 h-px sm:h-0.5 bg-gradient-to-r from-transparent via-blue-500/40 via-purple-500/40 via-emerald-500/40 to-transparent animate-gradient-x"></div>
 
-                {/* Container principal avec largeur maximale */}
+                
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 relative z-10">
                     
                     {/* Hero Section */}
                     <section className="py-12 sm:py-16 lg:py-24 xl:py-32">
                         <div className="text-center max-w-7xl mx-auto">
+
+
                             {/* Logo et branding */}
+
                             <div className="flex items-center justify-center space-x-4 sm:space-x-6 mb-8 lg:mb-12 animate-fade-in">
                                 <div className="relative group/logo">
                                     <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 dark:from-blue-400 dark:via-blue-500 dark:to-purple-500 rounded-3xl flex items-center justify-center shadow-xl shadow-blue-500/25 dark:shadow-blue-400/20 transition-all duration-500 group-hover/logo:scale-110 group-hover/logo:shadow-2xl">
@@ -70,7 +78,7 @@ const HomePublic = () => {
                                 </div>
                             </div>
                             
-                            {/* Titre principal optimisé pour desktop */}
+                            {/* Titre  pour desktop */}
                             <div className="relative mb-8 sm:mb-12 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
                                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight">
                                     <span className="block mb-2 sm:mb-4 bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-200 dark:to-white bg-clip-text text-transparent">Bienvenue sur</span>
@@ -80,14 +88,17 @@ const HomePublic = () => {
                                 </h1>
                             </div>
                             
-                            {/* Description avec largeur optimisée */}
+                            {/* Description */}
+
                             <div className="max-w-5xl mx-auto mb-12 sm:mb-16 animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                                 <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 leading-relaxed px-4 font-medium">
                                     Votre passerelle vers l'éducation de demain. Que vous soyez étudiant à la recherche de la formation idéale ou directeur souhaitant gérer et promouvoir votre établissement, EduConnect simplifie chaque étape de votre parcours éducatif.
                                 </p>
                             </div>
                             
-                            {/* Boutons d'action optimisés */}
+                            {/* Boutons d'action */}
+
+
                             <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto animate-fade-in-up" style={{animationDelay: '0.6s'}}>
                                 <Link 
                                     to="/register" 
@@ -107,7 +118,9 @@ const HomePublic = () => {
                         </div>
                     </section>
 
-                    {/* Features Section avec largeur étendue */}
+                    {/* Features Section */}
+
+
                     <section className="py-12 sm:py-16 lg:py-24">
                         <div className="text-center mb-12 sm:mb-16 lg:mb-20 animate-fade-in-up">
                             <div className="flex items-center justify-center space-x-3 sm:space-x-4 mb-6 lg:mb-8">
@@ -118,13 +131,13 @@ const HomePublic = () => {
                                     <div className="absolute -inset-1 bg-gradient-to-br from-emerald-500/20 to-blue-500/20 rounded-2xl blur-md opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500"></div>
                                 </div>
                                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-emerald-400 dark:to-blue-400 bg-clip-text text-transparent">
-                                    Une plateforme, deux profils
+                                    Une plateforme, deux profils !
                                 </h2>
                             </div>
                             <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-emerald-500 to-blue-500 dark:from-emerald-400 dark:to-blue-400 mx-auto rounded-full opacity-60"></div>
                         </div>
                         
-                        {/* Grid responsive optimisé pour desktop */}
+                        
                         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 max-w-7xl mx-auto">
                             {features.map((feature, index) => (
                                 <div 

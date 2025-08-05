@@ -40,7 +40,7 @@ const DashboardStudent = () => {
             <div className="absolute top-0 left-0 right-0 h-px sm:h-0.5 bg-gradient-to-r from-transparent via-blue-500/40 via-purple-500/40 via-emerald-500/40 to-transparent animate-gradient-x"></div>
 
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 py-6 lg:py-12">
-                
+
                 {/* Header */}
                 <div className="mb-8 lg:mb-12 animate-fade-in-up">
                     <div className="relative group">
@@ -68,6 +68,7 @@ const DashboardStudent = () => {
                 </div>
 
                 {/* Registrations */}
+                
                 <div className="animate-fade-in-up" style={{animationDelay: '0.2s'}}>
                     <div className="flex items-center space-x-3 sm:space-x-4 mb-6 lg:mb-8">
                         <div className="relative group/icon">
