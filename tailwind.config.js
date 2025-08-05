@@ -2,9 +2,10 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // Activation du mode sombre via une classe sur l'élément HTML
+
+  darkMode: 'class', 
   theme: {
     extend: {},
   },
