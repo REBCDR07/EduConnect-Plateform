@@ -110,7 +110,7 @@ const Login = () => {
             {isLoading ? 'Connexion en cours...' : 'Se connecter'}
           </button>
           <p className="text-center pt-6 text-gray-500 dark:text-gray-400">
-            Pas encore de compte ? <Link to="/client/src/pages/register" className="text-blue-500 hover:text-blue-600 font-semibold transition-colors duration-300">Inscrivez-vous</Link>
+            Pas encore de compte ? <Link to="/register" className="text-blue-500 hover:text-blue-600 font-semibold transition-colors duration-300">Inscrivez-vous</Link>
           </p>
         </div>
       </div>
